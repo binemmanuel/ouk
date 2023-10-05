@@ -1,0 +1,16 @@
+import '../groups_page/widgets/listusername_item_widget.dart';import 'package:flutter/material.dart';import 'package:ouk/core/app_export.dart';import 'package:ouk/widgets/custom_elevated_button.dart';import 'package:ouk/widgets/custom_floating_button.dart';class GroupsPage extends StatelessWidget {const GroupsPage({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(body: Container(width: double.maxFinite, decoration: AppDecoration.fillWhiteA, child: Column(children: [Container(decoration: AppDecoration.fillWhiteA, child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [SizedBox(height: 30.v), CustomElevatedButton(height: 75.v, text: "lbl_groups".tr, leftIcon: Container(margin: EdgeInsets.only(right: 6.h), child: CustomImageView(svgPath: ImageConstant.imgGroup1)), isDisabled: true)])), Opacity(opacity: 0.2, child: Divider()), Expanded(child: Padding(padding: EdgeInsets.only(left: 24.h, top: 12.v, right: 24.h), child: ListView.separated(physics: BouncingScrollPhysics(), shrinkWrap: true, separatorBuilder: (context, index) {return SizedBox(height: 20.v);}, itemCount: 5, itemBuilder: (context, index) {return ListusernameItemWidget(onTapJoinGroupButton: () {onTapJoinGroupButton(context);});}))), Container(margin: EdgeInsets.symmetric(horizontal: 24.h), padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 23.v), decoration: AppDecoration.outlineOnPrimary.copyWith(borderRadius: BorderRadiusStyle.roundedBorder12), child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.end, children: [SizedBox(height: 6.v), Text("lbl_ouk_4_president".tr, style: theme.textTheme.titleLarge), Container(width: 319.h, margin: EdgeInsets.only(top: 8.v, right: 7.h), child: Text("msg_lorem_ipsum_is_simply2".tr, maxLines: 3, overflow: TextOverflow.ellipsis, textAlign: TextAlign.justify, style: theme.textTheme.bodySmall!.copyWith(height: 1.33))), SizedBox(height: 52.v), CustomElevatedButton(height: 42.v, text: "lbl_join_group".tr.toUpperCase(), buttonTextStyle: CustomTextStyles.bodyLargeWhiteA700, onTap: () {onTapJoingroup(context);})]))])), floatingActionButton: CustomFloatingButton(height: 60, width: 60, backgroundColor: theme.colorScheme.primary, child: CustomImageView(svgPath: ImageConstant.imgGrid, height: 30.0.v, width: 30.0.h)))); } 
+/// Navigates to the groupsConversationOptionsOneScreen when the action is triggered.
+///
+/// The [BuildContext] parameter is used to build the navigation stack.
+/// When the action is triggered, this function uses the [Navigator] widget
+/// to push the named route for the groupsConversationOptionsOneScreen.
+onTapJoinGroupButton(BuildContext context) { Navigator.pushNamed(context, AppRoutes.groupsConversationOptionsOneScreen); } 
+/// Navigates to the dashboardOneScreen when the action is triggered.
+///
+/// The [BuildContext] parameter is used to build the navigation stack.
+/// When the action is triggered, this function uses the [Navigator] widget
+/// to push the named route for the dashboardOneScreen.
+onTapJoingroup(BuildContext context) { Navigator.pushNamed(context, AppRoutes.dashboardOneScreen); } 
+ }
